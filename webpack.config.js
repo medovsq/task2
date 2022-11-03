@@ -8,13 +8,16 @@ const config = {
         main: './src/index.js'
     },
     plugins: [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'public', 'index.html'),
+            favicon: './public/favicon.ico'
+        }),
         new StatoscopePlugin({
             saveStatsTo: 'stats.json',
             saveOnlyStats: false,
             open: false,
         }),
-        new LodashWebPackPlugin()
+        new LodashWebPackPlugin(),
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
